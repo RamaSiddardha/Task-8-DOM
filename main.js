@@ -1,9 +1,13 @@
 var addform=document.querySelector('#addForm')
 var newitem=document.querySelector('#items')
 
+var filter=document.querySelector('#filter')
+
 addform.addEventListener('submit',additem)
 
 newitem.addEventListener('click',removeItem)
+
+filter.addEventListener('keyup',filetItem)
 
 
 function additem(e){
@@ -46,4 +50,18 @@ function removeItem(e){
     }
 }
 
+
+function filetItem(e){
+  var text=e.target.value.toLowerCase()
+  var itemList=newitem.getElementsByTagName('li')
+  Array.from(itemList).forEach(function(item){
+    var ListItem=item.firstChild.textContent
+    if(ListItem.toLocaleLowerCase().indexOf(text) != -1){
+        item.style.display='block'
+    }
+    else{
+      item.style.display='none'
+    }
+  })
+}
 
