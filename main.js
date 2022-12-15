@@ -17,6 +17,8 @@ function additem(e){
    
 
     var getitem=document.getElementById('item').value
+    // store in localstorage
+    localStorage.setItem(getitem,'Item')
 
     var li=document.createElement('li')
     li.className='list-group-item'
@@ -37,6 +39,7 @@ function additem(e){
 
 
     newitem.appendChild(li)
+
 
 }
 
